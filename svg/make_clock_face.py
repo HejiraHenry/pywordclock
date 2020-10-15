@@ -1,18 +1,10 @@
 from xml.etree.ElementTree import QName, ElementTree, Element, SubElement, register_namespace
 from sys import stdout, stderr, argv
+from ClockFace import ClockFace
+
 
 letters = "ITSZATHALFBNTENQUARTERTWENTYPFIVEWAYTILPASTZOSEVENYNOONKBIRTHWDAYTMIDNIGHTTENFIVENINETWOELEVENEIGHTONESIXTHREEFOURZOCLOCK";
 
-class SVG(object):
-    def __getattr__(self, name):
-        def f(*children, **kwargs):
-            qname = QName("http://www.w3.org/2000/svg", name)
-            e = Element(qname, **kwargs)
-            e.extend(children)
-            return e
-        return f
-
-svg = SVG()
 
 
 def drawclock(x_edge, y_edge, x_delta, y_delta, file_name):
@@ -112,6 +104,7 @@ if __name__ == '__main__':
     print("Y Edge:  ", y_edge)
     
     file_name = file_name + "-" + myargs['-x'] + "x" +  myargs['-y']  + ".svg"
-    print "File Name:  " + file_name
-   
-    drawclock(x_edge, y_edge, x_delta, y_delta, file_name)
+    print ("File Name:  " + file_name)
+    cf = ClockFace()
+
+    #drawclock(x_edge, y_edge, x_delta, y_delta, file_name)
