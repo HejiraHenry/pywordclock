@@ -19,7 +19,7 @@ class ClockFace:
         self.data = []
         svg = SVG()
 
-    def drawclock(x_edge, y_edge, x_delta, y_delta, file_name):
+    def drawclock(self, x_edge, y_edge, x_delta, y_delta, file_name):
         register_namespace('svg', "http://www.w3.org/2000/svg")
         root = svg.svg(
             # fill
@@ -34,7 +34,7 @@ class ClockFace:
         x = 0
         y = 0 
 
-        for letter in letters:
+        for letter in self.letters:
             px = (x * x_delta) + x_edge
             py = (y * y_delta) + y_edge
             center_of_letter = ( px, py)
