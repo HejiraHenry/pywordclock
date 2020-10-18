@@ -9,27 +9,31 @@ class SVG(object):
             return e
         return f
 
-svg = SVG()
+#svg = SVG()
 
 
 
 class ClockFace:
     letters =""
+    svg = SVG()
+
+
+
     def __init__(self):
         self.data = []
         svg = SVG()
 
     def drawclock(self, x_edge, y_edge, x_delta, y_delta, file_name):
         register_namespace('svg', "http://www.w3.org/2000/svg")
-        root = svg.svg(
+        root = self.svg.svg(
             # fill
-            svg.rect(x="0", y="0", width="100", height="100", fill="#FFFFFF"),
+            self.svg.rect(x="0", y="0", width="100", height="100", fill="#FFFFFF"),
             width="18in",
             height="18in",
             viewBox="0 0 100 100",
             version="1.1",
              );  
-        letters_elem = svg.g()
+        letters_elem = self.svg.g()
 
         x = 0
         y = 0 
@@ -38,12 +42,13 @@ class ClockFace:
             px = (x * x_delta) + x_edge
             py = (y * y_delta) + y_edge
             center_of_letter = ( px, py)
-            label = svg.text(
+                    #"font-family": "Transport",
+            label = self.svg.text(
                 x=str(px),
                 y=str(py),
                 fill="#ffffff",
                 attrib={
-                    "font-family": "Transport",
+                    "font-family": "Ombudsman Stencil",
                     "font-size": "8",
                     "text-anchor": "middle",
                     "stroke": "black", 

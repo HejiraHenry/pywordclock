@@ -8,7 +8,6 @@ letters = "ITSZATHALFBNTENQUARTERTWENTYPFIVEWAYTILPASTZOSEVENYNOONKBIRTHWDAYTMID
 
 
 
-
 def getopts(argv):
     opts = {} 
     while argv: 
@@ -56,5 +55,6 @@ if __name__ == '__main__':
     file_name = file_name + "-" + str(x_delta) + "x" +  str(y_delta)  + ".svg"
     print ("File Name:  " + file_name)
     cf = ClockFace()
+    cf.letters = letters
 
     cf.drawclock(x_edge, y_edge, x_delta, y_delta, file_name)
